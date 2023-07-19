@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import trash from "./trash.png";
+import trash from "../trash.png";
 
 const StyledCard = styled.div`
   display: flex;

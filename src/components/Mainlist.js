@@ -7,10 +7,9 @@ import JobCard from './JobCard';
 import AddNewJob from './AddNewJob';
 import { styled } from 'styled-components';
 import Stats from './Stats';
-
-import stats from './stats.png';
-import sort from './sort.png';
-import off from './off.png';
+import stats from '../stats.png';
+import sort from '../sort.png';
+import off from '../off.png';
 
 const Title = styled.h1`
 display:flex;
