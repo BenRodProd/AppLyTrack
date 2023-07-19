@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/AppLyTrack/static/css/main.407d4965.css",
-    "main.js": "/AppLyTrack/static/js/main.f3e8abe3.js",
+    "main.css": "/AppLyTrack/static/css/main.297461dc.css",
+    "main.js": "/AppLyTrack/static/js/main.079f30a8.js",
     "static/js/787.027d4b0e.chunk.js": "/AppLyTrack/static/js/787.027d4b0e.chunk.js",
-    "static/media/work.jpg": "/AppLyTrack/static/media/work.3ae519fc1d7d87ec5bb3.jpg",
+    "static/media/work.jpg": "/AppLyTrack/static/media/work.6b409d390332d790d61b.jpg",
     "index.html": "/AppLyTrack/index.html",
-    "main.407d4965.css.map": "/AppLyTrack/static/css/main.407d4965.css.map",
-    "main.f3e8abe3.js.map": "/AppLyTrack/static/js/main.f3e8abe3.js.map",
+    "main.297461dc.css.map": "/AppLyTrack/static/css/main.297461dc.css.map",
+    "main.079f30a8.js.map": "/AppLyTrack/static/js/main.079f30a8.js.map",
     "787.027d4b0e.chunk.js.map": "/AppLyTrack/static/js/787.027d4b0e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.407d4965.css",
-    "static/js/main.f3e8abe3.js"
+    "static/css/main.297461dc.css",
+    "static/js/main.079f30a8.js"
   ]
 }
