@@ -6,13 +6,13 @@ let db = false;
 export const getDb = () => {
     if(!db){
         const firebaseConfig = {
-            apiKey: "AIzaSyAmn17M-Ed-BTnUyqCE468Q3bW-MTJM5tQ",
-            authDomain: "applytrack-72920.firebaseapp.com",
-            projectId: "applytrack-72920",
-            storageBucket: "applytrack-72920.appspot.com",
-            messagingSenderId: "678827715267",
-            appId: "1:678827715267:web:af15b9798706454e8d5076",
-            measurementId: "G-8CSZJGPJFQ"
+            apiKey: process.env.REACT_APP_APIKEY,
+            authDomain: process.env.REACT_APP_DOMAIN,
+            projectId: process.env.REACT_APP_PROJECTID,
+            storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+            messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+            appId: process.env.REACT_APP_APPID,
+            measurementId: process.env.REACT_APP_MEASUREMENT
           };
 
         const app = initializeApp(firebaseConfig)
