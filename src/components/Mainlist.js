@@ -247,16 +247,16 @@ const handleDelete = (id) => {
                     )}
                     </div>
                     <div>
-                      <StyledButton onClick = {() => setStatsActive(prevState => !prevState)} type="button"><img src="./stats.png" alt="stats" width="70px" /> </StyledButton>
+                      <StyledButton onClick = {() => setStatsActive(prevState => !prevState)} type="button"><img src="../stats.png" alt="stats" width="70px" /> </StyledButton>
                     </div>
                     <div>
            <StyledButton onClick={onLogout}>
-                        <img src="./off.png" alt="off" width="50px"/>
+                        <img src="../off.png" alt="off" width="50px"/>
                     </StyledButton>
           </div>
                       </TopStyle>
         <MainStyle>
-          <StyledSortImage src="./sort.png" alt="sort"  onClick={handleToggleVisibility}/>
+          <StyledSortImage src="../sort.png" alt="sort"  onClick={handleToggleVisibility}/>
           <StyledSelect isVisible={sortIsVisible} onChange={handleSortChange}>
         <option selected value="">Sort by</option>
         <option value="name">Name</option>
