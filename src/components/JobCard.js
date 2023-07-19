@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import trash from "../trash.png";
+import x from "../x.png"
 
 const StyledCard = styled.div`
   display: flex;
@@ -21,6 +22,18 @@ const StyledCard = styled.div`
   opacity: 0.9;
   
 `;
+
+const CloseIcon = styled.span`
+position:absolute;
+left: 0;
+top: 5px;
+  cursor: pointer;
+  text-align: left;
+  align-self: flex-start;
+  margin: 10px;
+  margin-top:0;
+`;
+
 const StyledInput = styled.input`
   margin: 10px;
   text-align: center;
@@ -29,6 +42,11 @@ const StyledInput = styled.input`
   height: 2rem;
 `;
 const DeleteIcon = styled.span`
+
+position:absolute;
+right:0;
+top: 1px;
+
   cursor: pointer;
   text-align: right;
   align-self: flex-end;
@@ -36,7 +54,18 @@ const DeleteIcon = styled.span`
   margin-top:0;
 `;
 
-export default function JobCard({ job, handleDelete, handleUpdate }) {
+const StyledTop = styled.span`
+display:flex;
+position:relative;
+width:100%;
+
+flex-direction: row;
+
+
+
+`
+
+export default function JobCard({ job, handleDelete, handleUpdate, stats, setSelectedEvent }) {
   const [company, setCompany] = useState(job.company);
   const [url, setUrl] = useState(job.url);
   const [beworben, setBeworben] = useState(job.beworben);
@@ -91,7 +120,12 @@ export default function JobCard({ job, handleDelete, handleUpdate }) {
   return (
     <>
       <StyledCard dismissed={abgelehnt ? "true" : "false"}>
+      <StyledTop>
+        {stats && 
+        <CloseIcon><img src = {x} onClick={() => setSelectedEvent(null)} alt="close" width="20px" height="20px"/></CloseIcon>
+      }
         <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
+        </StyledTop>
         <form onSubmit={handleSubmit}>
           <StyledInput
             name="company"

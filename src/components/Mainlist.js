@@ -246,7 +246,7 @@ const handleDelete = (id) => {
                 <div>
                     <StyledButton onClick={() =>setAddNewJob(prevState => !prevState)}>+</StyledButton>
                     {addNewJob && (
-                      <AddNewJob addJob={addJob} />
+                      <AddNewJob setAddNewJob={setAddNewJob} addJob={addJob} />
                     )}
                     </div>
                     <div>
@@ -280,7 +280,7 @@ const handleDelete = (id) => {
                 
           </StyledMain>
                     
-              {statsActive && (
+              {statsActive && jobs.length > 0 && (
                   <Stats deleted={deleted} setDeleted={setDeleted} handleUpdate={handleUpdate} handleDelete={handleDelete} jobs={jobs}/>
               )}
           </MainStyle>

@@ -49,7 +49,7 @@ const StyledUrlField = styled.div`
   align-items: center;
   justify-content: center;
 `
-export default function AddNewJob ({addJob}) {
+export default function AddNewJob ({addJob, setAddNewJob}) {
     const [urlText, setUrlText] = useState("");
 
     async function copyUrl() {
@@ -60,6 +60,7 @@ export default function AddNewJob ({addJob}) {
 function handleSubmit(e) {
     e.preventDefault();
     addJob(e)
+    setAddNewJob(false)
 }
     return(
         <>

@@ -137,7 +137,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
                 event: CustomEvent,
               }}
             />
-             {selectedEvent && <JobCard handleDelete={handleDelete} handleUpdate={handleUpdate} job={selectedEvent} />}
+             {selectedEvent && <JobCard setSelectedEvent={setSelectedEvent} stats={true} handleDelete={handleDelete} handleUpdate={handleUpdate} job={selectedEvent} />}
         </StyledStatMain>
     );
 }
