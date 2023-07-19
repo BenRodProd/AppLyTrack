@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components"
-import paste from "./paste.png";
+import paste from "../paste.png";
 
 const StyledCard = styled.form`
   display: flex;
