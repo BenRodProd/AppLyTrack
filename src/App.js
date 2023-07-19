@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import Signup from './page/Signup';
 import SignIn from './page/SignIn';
-import { BrowserRouter as Router, useNavigate} from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 import MainList from './components/Mainlist';
 import Intro from './components/Intro';
 import styled from 'styled-components';
-import Stats from './components/Stats';
+
 const StyledMain = styled.main`
   display:flex;
   flex-direction: column;

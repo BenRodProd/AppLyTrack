@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components"
+import paste from "./paste.png";
 
 const StyledCard = styled.form`
   display: flex;
@@ -67,7 +68,7 @@ function handleSubmit(e) {
                         <StyledInput placeholder = "company" name ="company" required></StyledInput> 
                         <StyledUrlField>
                         <StyledInput readOnly name="url" value={urlText} ></StyledInput>
-                      <StyledClipboard type="button" onClick = {()=>{copyUrl()}}><img src="./paste.png" alt="paste" width="25" height="25"/></StyledClipboard>
+                      <StyledClipboard type="button" onClick = {()=>{copyUrl()}}><img src={paste} alt="paste" width="25" height="25"/></StyledClipboard>
                       
                         </StyledUrlField>
                       <label htmlFor ="beworben">applied</label>

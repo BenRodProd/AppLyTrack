@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components";
+import trash from "./trash.png";
 
 const StyledCard = styled.div`
   display: flex;
@@ -90,7 +91,7 @@ export default function JobCard({ job, handleDelete, handleUpdate }) {
   return (
     <>
       <StyledCard dismissed={abgelehnt ? "true" : "false"}>
-        <DeleteIcon onClick={() => handleDelete(job.id)}><img src="./trash.png" alt = "delete" width="20px" height="30px"/></DeleteIcon>
+        <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
         <form onSubmit={handleSubmit}>
           <StyledInput
             name="company"
