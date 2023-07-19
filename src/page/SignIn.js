@@ -2,9 +2,53 @@ import React from 'react';
 import { useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
- 
-const SignIn = () => {
+ import { styled } from 'styled-components';
 
+const LogInScreen = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    margin:20px;
+    
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: lightblue;
+    
+    opacity: 0.9;
+    width:80%;
+    height:100%;
+   box-shadow: 5px 5px 10px black;
+    `
+const StyledForm = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    z-index:2;
+    opacity:1;
+    
+    
+    `
+const StyledSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    `
+const StyledMain = styled.main`
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  height:100vh;
+  width:100vw;
+  
+  `
+
+const SignIn = ({setUser}) => {
+const [displayErrorMessage, setDisplayErrorMessage] = useState("");
 const navigate = useNavigate();
 
 const [formData, setFormData] = useState({
@@ -30,24 +74,28 @@ const [formData, setFormData] = useState({
         password
       );
       if (userCredential.user) {
+        setUser(userCredential.user.email);
         navigate("/main-list");
       }
     } catch (error) {
        
       const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage)
+    console.log(errorMessage, errorCode)
+    if (errorCode === "auth/user-not-found" ) {
+      setDisplayErrorMessage("Email not a user");
+    }
     }
   }
    
     return(
         <>
-            <main >        
-                <section>
-                    <div>                                            
+            <StyledMain >        
+                <StyledSection>
+                    <LogInScreen>                                            
                                         
-                                                       
-                        <form onSubmit={onSubmit}>                                              
+                                  <h2>Log In</h2>                     
+                        <StyledForm onSubmit={onSubmit}>                                              
                             <div>
                                 <label htmlFor="email-address">
                                     Email address
@@ -83,8 +131,8 @@ const [formData, setFormData] = useState({
                                    Sign In                                                                 
                                 </button>
                             </div>                               
-                        </form>
-                       
+                        </StyledForm>
+                       <p>{displayErrorMessage}</p>
                         <p className="text-sm text-white text-center">
                             No account yet? {' '}
                             <Link to="/sign-up">
@@ -92,9 +140,9 @@ const [formData, setFormData] = useState({
                             </Link>
                         </p>
                                                    
-                    </div>
-                </section>
-            </main>
+                    </LogInScreen>
+                </StyledSection>
+            </StyledMain>
         </>
     )
 }

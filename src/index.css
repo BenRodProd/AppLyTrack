@@ -1,6 +1,11 @@
 body {
   margin: 0;
-  background-color: antiquewhite;
+  width:100vw;
+  height:100vh;
+  overflow-x: hidden;
+  background-image: url("../public/work.jpg");
+  background-size: contain;
+  background-repeat: repeat ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,3 +17,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.rbc-event-content {
+ white-space: pre-line;
+  
+
+}
+
