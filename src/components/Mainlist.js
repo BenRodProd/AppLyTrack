@@ -188,7 +188,7 @@ setJobs(sortedByState)
   
     setSorting(selectedOption.target.value);
     setSortIsVisible(false)
- console.log(selectedOption.target.value);
+
   };
 
 
@@ -211,11 +211,11 @@ setJobs(sortedByState)
       url: updatedJob.url,
     })
       .then(() => {
-        console.log('Job updated successfully!');
+     
         // Perform any additional actions after successful update
       })
       .catch((error) => {
-        console.error('Error updating job:', error);
+   
         // Handle the error if necessary
       });
   };
@@ -228,7 +228,7 @@ const handleDelete = (id) => {
         navigate("/sign-in");
        }
  },[])
-     console.log(jobs)
+  
       
    
     return(

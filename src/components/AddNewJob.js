@@ -53,7 +53,7 @@ export default function AddNewJob ({addJob}) {
 
     async function copyUrl() {
         const clipBoard = await navigator.clipboard.readText()
-        console.log(clipBoard)
+      
         setUrlText(clipBoard)
     }
 function handleSubmit(e) {

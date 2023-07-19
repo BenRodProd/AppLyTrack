@@ -81,7 +81,7 @@ const [formData, setFormData] = useState({
        
       const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage, errorCode)
+  
     if (errorCode === "auth/user-not-found" ) {
       setDisplayErrorMessage("Email not a user");
     }

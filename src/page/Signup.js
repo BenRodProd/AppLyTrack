@@ -88,7 +88,7 @@ const navigate = useNavigate()
       if (errorCode === "auth/email-already-in-use" ) {
         setDisplayErrorMessage("Email already in use");
       }
-    console.log(errorMessage)
+
     }
   }
 
