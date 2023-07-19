@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Signup from './page/Signup';
 import SignIn from './page/SignIn';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router, useNavigate} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 import MainList from './components/Mainlist';
 import Intro from './components/Intro';
@@ -25,10 +25,12 @@ const StyledMain = styled.main`
 function App() {
  const [user, setUser] = React.useState(null);
 const [introOn, setIntroOn] = React.useState(true);
+
 useEffect(() => {
   setTimeout(() => {
     setIntroOn(false);
   }, 4000);
+
 },[])
 
   return (
@@ -36,7 +38,8 @@ useEffect(() => {
       <StyledMain>
         {introOn && <Intro/>}
         <section>                              
-            <Routes>                                                                        
+            <Routes>                                   
+            <Route path="/ApplyTrack" element={<SignIn setUser={setUser}/>}/>                          
               <Route path="/" element={<SignIn setUser={setUser}/>}/>
                <Route path="/sign-up" element={<Signup setUser={setUser}/>}/>
                <Route path="/sign-in" element={<SignIn setUser={setUser}/>}/>
