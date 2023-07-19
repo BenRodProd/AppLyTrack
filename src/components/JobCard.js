@@ -45,7 +45,7 @@ const DeleteIcon = styled.span`
 
 position:absolute;
 right:0;
-top: 1px;
+top: 0;
 
   cursor: pointer;
   text-align: right;

@@ -21,7 +21,7 @@ margin-bottom:20px;
 background: lightblue;
 border-radius: 10px;
 padding: 20px;
-opacity: 0.9;
+opacity: 0.7;
 box-shadow: 0 0 10px lightblue;
 width:80vw;
 
@@ -41,6 +41,11 @@ margin:auto;
 
 
 border-radius: 50%;
+`
+
+const Header = styled.div`
+backdrop-filter: blur(0.5rem);
+width:100vw;
 `
 const LettersApp = styled.div`
 font-family: 'Courier New', Courier, monospace;
@@ -71,7 +76,7 @@ const MainStyle = styled.div`
     justify-content: center;
     margin:auto;
     padding:20px;
-    
+   
     `
 
 const TopStyle = styled.div`
@@ -236,8 +241,9 @@ const handleDelete = (id) => {
    
     return(
       <>
+     
+            <Header>
           <Title>
-            
                 <LettersApp>App</LettersApp>
                 <LettersLy>Ly</LettersLy>
                 <LettersTrack>Track</LettersTrack>
@@ -245,9 +251,6 @@ const handleDelete = (id) => {
                 <TopStyle>  
                 <div>
                     <StyledButton onClick={() =>setAddNewJob(prevState => !prevState)}>+</StyledButton>
-                    {addNewJob && (
-                      <AddNewJob setAddNewJob={setAddNewJob} addJob={addJob} />
-                    )}
                     </div>
                     <div>
                       <StyledButton onClick = {() => setStatsActive(prevState => !prevState)} type="button"><img src={stats} alt="stats" width="70px" /> </StyledButton>
@@ -258,6 +261,10 @@ const handleDelete = (id) => {
                     </StyledButton>
           </div>
                       </TopStyle>
+                      </Header>
+                    {addNewJob && (
+                      <AddNewJob setAddNewJob={setAddNewJob} addJob={addJob} />
+                    )}
         <MainStyle>
           <StyledSortImage src={sort} alt="sort"  onClick={handleToggleVisibility}/>
           <StyledSelect isVisible={sortIsVisible} onChange={handleSortChange}>
