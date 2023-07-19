@@ -281,7 +281,7 @@ const handleDelete = (id) => {
           </StyledMain>
                     
               {statsActive && jobs.length > 0 && (
-                  <Stats deleted={deleted} setDeleted={setDeleted} handleUpdate={handleUpdate} handleDelete={handleDelete} jobs={jobs}/>
+                  <Stats deleted={deleted} setStatsActive={setStatsActive} setDeleted={setDeleted} handleUpdate={handleUpdate} handleDelete={handleDelete} jobs={jobs}/>
               )}
           </MainStyle>
         </>

@@ -4,21 +4,22 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import JobCard from "./JobCard";
 import { useEffect, useState } from "react";
+import x from "../x.png";
 
 const StyledStatMain = styled.div`
 display:flex;
 flex-direction: column;
 position:absolute;
 text-align:center;
-top:15rem;
+top:0;
 align-items: center;
 margin:auto;
 width:90%;
-height:90%;
+height:100%;
 background-color: aliceblue;
 opacity: 0.99;
-padding: 20px;
-    margin: auto;
+padding: 10px;
+    
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 5px 5px 10px black;
@@ -48,15 +49,19 @@ font-weight: bold;
 margin: 10px;
 `
 
+const StyledX = styled.img`
+position:absolute;
+left:5px;
+`
 
-export default function Stats({jobs, handleUpdate, handleDelete, deleted, setDeleted}) {
+export default function Stats({jobs, handleUpdate, handleDelete, deleted, setDeleted, setStatsActive}) {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const localizer = momentLocalizer(moment)
 const myEventsList = jobs.reduce((acc, obj) => {
     if (obj.beworbenDate) {
       acc.push({
         id: obj.id,
-        title: `Applied to ${obj.company}`,
+        title: `APPLY ${obj.company}`,
         start: new Date(obj.beworbenDate),
         end: new Date(obj.beworbenDate),
         color: 'green',
@@ -65,7 +70,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
     if (obj.abgelehntDate) {
       acc.push({
         id: obj.id,
-        title: 'Dismissed',
+        title: `REJECT ${obj.company}`,
         start: new Date(obj.abgelehntDate),
         end: new Date(obj.abgelehntDate),
         color: 'red',
@@ -89,7 +94,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
         border: '0px', // Remove border
         display: 'block',
         lineHeight: '1.4',
-        height: '40px', // Adjust the height to make the events bigger
+        height: '60px', // Adjust the height to make the events bigger
         fontSize: '9px', // Set the font size for the event titles
         whiteSpace: 'pre-line',
       },
@@ -114,6 +119,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
   const companies = jobs.map(obj => obj.company);
   return (
       <StyledStatMain>
+        <StyledX onClick = {() => setStatsActive(prevState => !prevState)} src = {x} alt = "x" width = "40px" height = "40px" />
             <h2>Statistics</h2>
             <p>___________________________</p>
             <p>You have <StyledSpan>{jobs.length}</StyledSpan> jobs in your Database</p>
@@ -129,7 +135,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
               events={myEventsList}
               startAccessor="start"
               endAccessor="end"
-            style={{height : 500}}
+            style={{height : 700}}
             length={4}
             eventPropGetter={eventStyleGetter}
             views={['month']} 
