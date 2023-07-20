@@ -97,7 +97,7 @@ const [formData, setFormData] = useState({
                                   <h2>Log In</h2>                     
                         <StyledForm onSubmit={onSubmit}>                                              
                             <div>
-                                <label htmlFor="email-address">
+                                <label htmlFor="email">
                                     Email address
                                 </label>
                                 <input

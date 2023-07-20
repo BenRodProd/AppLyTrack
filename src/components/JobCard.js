@@ -126,13 +126,14 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
       }
         <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
         </StyledTop>
-        <form onSubmit={handleSubmit}>
+        <form id="jobForm" onSubmit={handleSubmit}>
           <StyledInput
+          autoComplete="off"
             name="company"
             defaultValue={company}
             onChange={handleCompanyChange}
           />
-          <StyledInput type="url"name="url" value={url} onChange={handleUrlChange} />
+          <StyledInput autoComplete="off" type="url"name="url" defaultValue={url} onChange={handleUrlChange} />
           <hr></hr>
           <label htmlFor="beworben">applied</label>
           <StyledInput
@@ -159,6 +160,7 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
 }
 <hr></hr>
           <textarea
+          autoComplete="off"
           maxLength={80}
             type="text"
             name="comment"

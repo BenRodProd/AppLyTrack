@@ -64,11 +64,11 @@ function handleSubmit(e) {
 }
     return(
         <>
-                        <StyledCard onSubmit = {(e)=>handleSubmit(e)}>
+                        <StyledCard id="NewJobForm" onSubmit = {(e)=>handleSubmit(e)}>
                      <h2>Add New Job</h2>
-                        <StyledInput placeholder = "company" name ="company" required></StyledInput> 
+                        <StyledInput autoComplete="off" placeholder = "company" name ="company" required></StyledInput> 
                         <StyledUrlField>
-                        <StyledInput readOnly name="url" value={urlText} ></StyledInput>
+                        <StyledInput autoComplete="off" readOnly name="url" value={urlText} ></StyledInput>
                       <StyledClipboard type="button" onClick = {()=>{copyUrl()}}><img src={paste} alt="paste" width="25" height="25"/></StyledClipboard>
                       
                         </StyledUrlField>
@@ -78,7 +78,7 @@ function handleSubmit(e) {
                        <label htmlFor ="abgelehnt">dismissed</label>
                        <StyledInput id="abgelehnt" name="abgelehnt" type ="checkbox" ></StyledInput>
                        <StyledInput name="abgelehntDate" type ="date" ></StyledInput>
-                       <StyledTextArea maxLength={80} type = "textarea" name ="comment" style={{textAlign: "center", height: "4rem"}} ></StyledTextArea>
+                       <StyledTextArea autoComplete="off" maxLength={80} type = "textarea" name ="comment" style={{textAlign: "center", height: "4rem"}} ></StyledTextArea>
                        <button type ="submit">Submit</button>
                      
                        </StyledCard>

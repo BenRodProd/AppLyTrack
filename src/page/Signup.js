@@ -101,7 +101,7 @@ const navigate = useNavigate()
                               <h2>Sign Up</h2>       
                     <StyledForm onSubmit={onSubmit}>                                                                                            
                         <div>
-                            <label htmlFor="email-address">
+                            <label htmlFor="email">
                                 Email address
                             </label>
                             <input
