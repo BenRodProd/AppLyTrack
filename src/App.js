@@ -41,9 +41,9 @@ useEffect(() => {
             <Routes>                                   
             <Route path="/ApplyTrack" element={<SignIn setUser={setUser}/>}/>                          
               <Route path="/" element={<SignIn setUser={setUser}/>}/>
-               <Route path="/ApplyTrack/sign-up" element={<Signup setUser={setUser}/>}/>
-               <Route path="/ApplyTrack/sign-in" element={<SignIn setUser={setUser}/>}/>
-                <Route path="/ApplyTrack/main-list" element={<MainList  user={user}/> }/>
+               <Route path="/sign-up" element={<Signup setUser={setUser}/>}/>
+               <Route path="/sign-in" element={<SignIn setUser={setUser}/>}/>
+                <Route path="/main-list" element={<MainList  user={user}/> }/>
                
             </Routes>                    
         </section>
