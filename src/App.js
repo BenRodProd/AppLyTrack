@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Signup from './page/Signup';
 import SignIn from './page/SignIn';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { HashRouter} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
 import MainList from './components/Mainlist';
 import Intro from './components/Intro';
@@ -34,7 +34,7 @@ useEffect(() => {
 },[])
 
   return (
-    <Router>
+    <HashRouter>
       <StyledMain>
         {introOn && <Intro/>}
         <section>                              
@@ -48,7 +48,7 @@ useEffect(() => {
             </Routes>                    
         </section>
       </StyledMain>
-    </Router>
+    </HashRouter>
   );
 }
  

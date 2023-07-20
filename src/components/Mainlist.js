@@ -102,29 +102,34 @@ const StyledMain = styled.main`
     border-radius: 10px;
     
     @media (min-width: 400px) {
-     
+      
     }
     @media (min-width: 770px) {
       display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
     }
     @media (min-width: 1000px) {
       display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
     }
     `
 
 const MainList = ({user}) => {
-    const q = query(collection(getDb(), 'ApplyTrack'), orderBy('timestamp', 'desc'));
-    const [jobs, setJobs] = useState([]);
-    const [addNewJob, setAddNewJob] = useState(false);
-    const [statsActive, setStatsActive] = useState(false);
-    const [deleted, setDeleted] = useState(false)
-    const [sorting, setSorting] = useState("date")
-    const [sortIsVisible, setSortIsVisible] = useState(false);
-    useEffect(() => {
+  const q = query(collection(getDb(), 'ApplyTrack'), orderBy('timestamp', 'desc'));
+  const [jobs, setJobs] = useState([]);
+  const [addNewJob, setAddNewJob] = useState(false);
+  const [statsActive, setStatsActive] = useState(false);
+  const [deleted, setDeleted] = useState(false)
+  const [sorting, setSorting] = useState("date")
+  const [sortIsVisible, setSortIsVisible] = useState(false);
+  useEffect(() => {
+     if (!user) {
+         navigate("/sign-in");
+        }
+  },[])
+  useEffect(() => {
         onSnapshot(q, (snapshot) => {
             const filteredJobs = snapshot.docs
             .filter((doc) => doc.data().user === user)
@@ -218,11 +223,6 @@ const handleDelete = (id) => {
     setDeleted(true)
 }
 
- useEffect(() => {
-    if (!user) {
-        navigate("/sign-in");
-       }
- },[])
      
     return(
       <>
