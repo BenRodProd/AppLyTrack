@@ -73,10 +73,10 @@ function handleSubmit(e) {
                       
                         </StyledUrlField>
                       <label htmlFor ="beworben">applied</label>
-                       <StyledInput name = "beworben" type ="checkbox" ></StyledInput>
+                       <StyledInput id="beworben" name = "beworben" type ="checkbox" ></StyledInput>
                        <StyledInput name="beworbenDate" type ="date" ></StyledInput>
                        <label htmlFor ="abgelehnt">dismissed</label>
-                       <StyledInput name="abgelehnt" type ="checkbox" ></StyledInput>
+                       <StyledInput id="abgelehnt" name="abgelehnt" type ="checkbox" ></StyledInput>
                        <StyledInput name="abgelehntDate" type ="date" ></StyledInput>
                        <StyledTextArea maxLength={80} type = "textarea" name ="comment" style={{textAlign: "center", height: "4rem"}} ></StyledTextArea>
                        <button type ="submit">Submit</button>

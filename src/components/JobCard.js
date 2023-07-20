@@ -136,6 +136,7 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
           <hr></hr>
           <label htmlFor="beworben">applied</label>
           <StyledInput
+          id="beworben"
             name="beworben"
             type="checkbox"
             checked={beworben}
@@ -147,6 +148,7 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
 <hr></hr>
           <label htmlFor="abgelehnt">dismissed</label>
           <StyledInput
+          id="abgelehnt"
             name="abgelehnt"
             type="checkbox"
             checked={abgelehnt}
