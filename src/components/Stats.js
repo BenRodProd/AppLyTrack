@@ -130,6 +130,7 @@ const myEventsList = jobs.reduce((acc, obj) => {
             <StyledList>
                 {companies.map((company,index) => <StyledItem key={index} >{company}</StyledItem>)}
             </StyledList>
+            <p>___________________________</p>
             <Calendar
               localizer={localizer}
               events={myEventsList}

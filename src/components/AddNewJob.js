@@ -5,8 +5,8 @@ import paste from "../paste.png";
 const StyledCard = styled.form`
   display: flex;
   position:absolute;
- z-index:10;
- left:2%;
+  z-index:10;
+  left:2%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -31,7 +31,7 @@ const StyledInput = styled.input`
   width: 50%;
 `;
 const StyledClipboard = styled.button`
-background-color:transparent;
+  background-color:transparent;
 `
 const StyledTextArea = styled.textarea`
   margin: 10px;

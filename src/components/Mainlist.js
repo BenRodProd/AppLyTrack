@@ -24,7 +24,6 @@ padding: 20px;
 opacity: 0.7;
 box-shadow: 0 0 10px lightblue;
 width:80vw;
-
 `
 
 const StyledButton = styled.button`
@@ -37,9 +36,6 @@ border:none;
 cursor: pointer;
 align-items: center;
 margin:auto;
-
-
-
 border-radius: 50%;
 `
 
@@ -58,14 +54,12 @@ font-family: 'Courier New', Courier, monospace;
 font-size: 3rem;
 color: blue;
 font-weight: bold;
-
 `
 const LettersTrack = styled.div`
 font-family: 'Courier New', Courier, monospace;
 font-size: 3rem;
 color: red;
 font-weight: bold;
-
 `
 
 const MainStyle = styled.div`
@@ -76,7 +70,6 @@ const MainStyle = styled.div`
     justify-content: center;
     margin:auto;
     padding:20px;
-   
     `
 
 const TopStyle = styled.div`
@@ -84,7 +77,6 @@ const TopStyle = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-   
     width:100%;
     `
 
@@ -107,11 +99,8 @@ const StyledMain = styled.main`
     justify-content: space-evenly;
     padding: 20px;
     margin: auto;
-    
     border-radius: 10px;
     
-    
-
     @media (min-width: 400px) {
      
     }
@@ -126,6 +115,7 @@ const StyledMain = styled.main`
     grid-template-rows: 1fr 1fr 1fr 1fr;
     }
     `
+
 const MainList = ({user}) => {
     const q = query(collection(getDb(), 'ApplyTrack'), orderBy('timestamp', 'desc'));
     const [jobs, setJobs] = useState([]);
@@ -193,19 +183,14 @@ setJobs(sortedByState)
     });
   }
   const handleSortChange = (selectedOption) => {
-  
     setSorting(selectedOption.target.value);
     setSortIsVisible(false)
-
   };
-
-
-
-
 
   const handleToggleVisibility = () => {
     setSortIsVisible(!sortIsVisible); // Toggle dropdown visibility when the image is clicked
   };
+
   const handleUpdate = (updatedJob) => {
     const docRef = doc(getDb(), 'ApplyTrack', updatedJob.id);
     updateDoc(docRef, {
@@ -227,21 +212,20 @@ setJobs(sortedByState)
         // Handle the error if necessary
       });
   };
+
 const handleDelete = (id) => {
     deleteDoc(doc(getDb(), 'ApplyTrack', id));
     setDeleted(true)
 }
+
  useEffect(() => {
     if (!user) {
         navigate("/sign-in");
        }
  },[])
-  
-      
-   
+     
     return(
       <>
-     
             <Header>
           <Title>
                 <LettersApp>App</LettersApp>
@@ -282,11 +266,7 @@ const handleDelete = (id) => {
                     )
                 })
                 }
-                  
-                
-                
           </StyledMain>
-                    
               {statsActive && jobs.length > 0 && (
                   <Stats deleted={deleted} setStatsActive={setStatsActive} setDeleted={setDeleted} handleUpdate={handleUpdate} handleDelete={handleDelete} jobs={jobs}/>
               )}
