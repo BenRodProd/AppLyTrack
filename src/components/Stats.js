@@ -15,7 +15,7 @@ top:0;
 align-items: center;
 margin:auto;
 width:90%;
-height:100%;
+
 background-color: aliceblue;
 opacity: 0.99;
 padding: 10px;

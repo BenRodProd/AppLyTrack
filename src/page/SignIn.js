@@ -118,7 +118,8 @@ const [formData, setFormData] = useState({
                                     id="password"
                                     name="password"
                                     type="password"                                    
-                                    required                                                                                
+                                    required                 
+                                    min="6"                                                               
                                     placeholder="Password"
                                     onChange={onChange}
                                 />

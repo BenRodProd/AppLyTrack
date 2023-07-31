@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import trash from "../trash.png";
 import x from "../x.png"
-
+import expand from "../expand.png"
 const StyledCard = styled.div`
-  display: flex;
-  
+  display: inline-block;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 10px;
   margin: 20px;
-  
+  height: ${props => props.$expand === "true" ? "auto" : "3rem"};
   max-width: 350px;
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
-  background-color: ${props => (props.dismissed === "true" ? "red" : "aliceblue")};
-  
+  background-color: ${props => (props.$dismissed === "true" ? "red" : "aliceblue")};
+  overflow: hidden;
   opacity: 0.9;
   
 `;
@@ -53,7 +53,19 @@ top: 0;
   margin: 10px;
   margin-top:0;
 `;
+const ExpandIcon = styled.span`
 
+position:absolute;
+left:0;
+top: 0;
+
+  cursor: pointer;
+  text-align: right;
+  align-self: flex-end;
+  margin: 10px;
+  margin-top:0;
+  
+`;
 const StyledTop = styled.span`
 display:flex;
 position:relative;
@@ -65,7 +77,7 @@ flex-direction: row;
 
 `
 
-export default function JobCard({ job, handleDelete, handleUpdate, stats, setSelectedEvent }) {
+export default function JobCard({job, handleDelete, handleUpdate, stats, setSelectedEvent }) {
   const [company, setCompany] = useState(job.company);
   const [url, setUrl] = useState(job.url);
   const [beworben, setBeworben] = useState(job.beworben);
@@ -73,6 +85,7 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
   const [comment, setComment] = useState(job.comment);
   const [beworbenDate, setBeworbenDate] = useState(job.beworbenDate);
   const [abgelehntDate, setAbgelehntDate] = useState(job.abgelehntDate);
+  const [expanded, setExpanded] = useState(false);
 
   function handleCompanyChange(event) {
     setCompany(event.target.value);
@@ -119,15 +132,17 @@ export default function JobCard({ job, handleDelete, handleUpdate, stats, setSel
 
   return (
     <>
-      <StyledCard dismissed={abgelehnt ? "true" : "false"}>
+      <StyledCard $expand = {expanded.toString()} $dismissed={abgelehnt ? "true" : "false"}>
       <StyledTop>
         {stats && 
         <CloseIcon><img src = {x} onClick={() => setSelectedEvent(null)} alt="close" width="20px" height="20px"/></CloseIcon>
       }
+        <ExpandIcon onClick={() => setExpanded(!expanded)}><img src={expand} alt="expand" width="12px" height="25px"/></ExpandIcon>
         <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
         </StyledTop>
         <form id="jobForm" onSubmit={handleSubmit}>
           <StyledInput
+          
           autoComplete="off"
             name="company"
             defaultValue={company}

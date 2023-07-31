@@ -70,6 +70,7 @@ const MainStyle = styled.div`
     justify-content: center;
     margin:auto;
     padding:20px;
+    min-height:100vh;
     `
 
 const TopStyle = styled.div`
@@ -90,7 +91,7 @@ const StyledSortImage = styled.img`
     cursor: pointer;
     `
 const StyledSelect = styled.select`
-display: ${props => (props.isVisible ? 'block' : 'none')};
+display: ${props => (props.$isVisible ? 'block' : 'none')};
     `
 const StyledMain = styled.main`
   display:grid;
@@ -124,6 +125,7 @@ const MainList = ({user}) => {
   const [deleted, setDeleted] = useState(false)
   const [sorting, setSorting] = useState("date")
   const [sortIsVisible, setSortIsVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
      if (!user) {
          navigate("/sign-in");
@@ -223,6 +225,9 @@ const handleDelete = (id) => {
     setDeleted(true)
 }
 
+const handleExpand = () => {
+    setExpanded(!expanded);
+}
      
     return(
       <>
@@ -251,8 +256,8 @@ const handleDelete = (id) => {
                     )}
         <MainStyle>
           <StyledSortImage src={sort} alt="sort"  onClick={handleToggleVisibility}/>
-          <StyledSelect isVisible={sortIsVisible} onChange={handleSortChange}>
-        <option selected value="">Sort by</option>
+          <StyledSelect $isVisible={sortIsVisible} onChange={handleSortChange}>
+        <option value="">Sort by</option>
         <option value="name">Name</option>
         <option value="date">Date</option>
         <option value="state">State</option>
@@ -261,7 +266,7 @@ const handleDelete = (id) => {
                 {jobs.map(job => {
                     return(
                      
-                            <JobCard handleUpdate={handleUpdate} handleDelete={handleDelete} key={job.id} job={job}/>
+                            <JobCard  expanded={expanded} setExpanded={handleExpand} handleUpdate={handleUpdate} handleDelete={handleDelete} key={job.id} job={job}/>
                      
                     )
                 })

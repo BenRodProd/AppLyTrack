@@ -125,6 +125,7 @@ const navigate = useNavigate()
                                 label="Create password"
                                 value={password}
                                 onChange={onChange} 
+                                min="6"
                                 required                                 
                                 placeholder="Password"              
                             />
