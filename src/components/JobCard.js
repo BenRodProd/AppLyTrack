@@ -3,6 +3,8 @@ import { styled } from "styled-components";
 import trash from "../trash.png";
 import x from "../x.png"
 import expand from "../expand.png"
+import linkIcon from "../link.png"
+
 const StyledCard = styled.div`
   display: inline-block;
   position: relative;
@@ -33,6 +35,10 @@ top: 5px;
   margin: 10px;
   margin-top:0;
 `;
+const UrlLinkIcon = styled.button`
+background-color: transparent;
+border:none;
+`
 
 const StyledInput = styled.input`
   margin: 10px;
@@ -92,8 +98,22 @@ export default function JobCard({job, handleDelete, handleUpdate, stats, setSele
   }
 
   function handleUrlChange(event) {
-    setUrl(event.target.value);
+    let newUrl = event.target.value.trim();
+    
+    // Check if the URL doesn't start with 'http://' or 'https://'
+    if (!newUrl.match(/^(https?:\/\/)/i)) {
+      // Add 'http://' to the URL
+      newUrl = 'https://' + newUrl;
+    }
+  
+    setUrl(newUrl);
   }
+  useEffect(() => {
+    if (stats) {
+      setExpanded(true);
+    }
+  },[stats])
+  
 
   function handleBeworbenDateChange(event) {
     setBeworbenDate(event.target.value);
@@ -114,6 +134,10 @@ export default function JobCard({job, handleDelete, handleUpdate, stats, setSele
   function handleCommentChange(event) {
     setComment(event.target.value);
   }
+
+function handleUrlClick(url) {
+  window.open(url, "_blank");
+}
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -137,7 +161,7 @@ export default function JobCard({job, handleDelete, handleUpdate, stats, setSele
         {stats && 
         <CloseIcon><img src = {x} onClick={() => setSelectedEvent(null)} alt="close" width="20px" height="20px"/></CloseIcon>
       }
-        <ExpandIcon onClick={() => setExpanded(!expanded)}><img src={expand} alt="expand" width="12px" height="25px"/></ExpandIcon>
+        {!stats ? <ExpandIcon onClick={() => setExpanded(!expanded)}><img src={expand} alt="expand" width="12px" height="25px"/></ExpandIcon> : null}
         <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
         </StyledTop>
         <form id="jobForm" onSubmit={handleSubmit}>
@@ -148,7 +172,10 @@ export default function JobCard({job, handleDelete, handleUpdate, stats, setSele
             defaultValue={company}
             onChange={handleCompanyChange}
           />
-          <StyledInput autoComplete="off" type="url"name="url" defaultValue={url} onChange={handleUrlChange} />
+          
+          <StyledInput autoComplete="off" type="url"name="url" defaultValue={url} onChange={handleUrlChange}  />
+          {url ? <UrlLinkIcon type ="button" onClick={()=>handleUrlClick(url)}><img  src={linkIcon} alt="link" width="25px" height="25px"/></UrlLinkIcon> : null}
+          
           <hr></hr>
           <label htmlFor="beworben">applied</label>
           <StyledInput

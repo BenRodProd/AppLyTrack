@@ -110,7 +110,7 @@ const StyledMain = styled.main`
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
     }
-    @media (min-width: 1000px) {
+    @media (min-width: 1300px) {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr 1fr;
