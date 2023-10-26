@@ -14,7 +14,7 @@ const StyledCard = styled.div`
   text-align: center;
   padding: 10px;
   margin: 20px;
-  height: ${props => props.$expand === "true" ? "auto" : "3rem"};
+  height: ${props => props.$expand === "true" ? "auto" : "6rem"};
   max-width: 350px;
   border: 2px solid black;
   border-radius: 10px;
@@ -159,21 +159,22 @@ function handleUrlClick(url) {
       <StyledCard $expand = {expanded.toString()} $dismissed={abgelehnt ? "true" : "false"}>
       <StyledTop>
         {stats && 
-        <CloseIcon><img src = {x} onClick={() => setSelectedEvent(null)} alt="close" width="20px" height="20px"/></CloseIcon>
+        <CloseIcon><img src = {x} onClick={() => setSelectedEvent(null)} alt="close" width="30px" height="15px"/></CloseIcon>
       }
-        {!stats ? <ExpandIcon onClick={() => setExpanded(!expanded)}><img src={expand} alt="expand" width="12px" height="25px"/></ExpandIcon> : null}
-        <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="20px" height="30px"/></DeleteIcon>
+        {!stats ? <ExpandIcon onClick={() => setExpanded(!expanded)}><img src={expand} alt="expand" width="12px" height="20px"/></ExpandIcon> : null}
+        <DeleteIcon onClick={() => handleDelete(job.id)}><img src={trash} alt = "delete" width="15px" height="20px"/></DeleteIcon>
         </StyledTop>
         <form id="jobForm" onSubmit={handleSubmit}>
           <StyledInput
           
           autoComplete="off"
-            name="company"
-            defaultValue={company}
-            onChange={handleCompanyChange}
+          name="company"
+          defaultValue={company}
+          onChange={handleCompanyChange}
           />
           
-          <StyledInput autoComplete="off" type="url"name="url" defaultValue={url} onChange={handleUrlChange}  />
+          {beworbenDate && <p>{beworbenDate}</p>}
+          <StyledInput autoComplete="off" type="url" name="url" defaultValue={url} onChange={handleUrlChange} />
           {url ? <UrlLinkIcon type ="button" onClick={()=>handleUrlClick(url)}><img  src={linkIcon} alt="link" width="25px" height="25px"/></UrlLinkIcon> : null}
           
           <hr></hr>
